@@ -3,8 +3,8 @@ Description=dotnet sample application
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/dotnet /home/ubuntu/sample-code/bin/Release/net7.0/publish/myWebApp.dll --urls http://0.0.0.0:5000
-WorkingDirectory=/home/ubuntu/sample-code
+ExecStart=/usr/bin/dotnet /home/ubuntu/bin/Release/net7.0/publish/myWebApp.dll --urls http://0.0.0.0:5000
+WorkingDirectory=/home/ubuntu
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
