@@ -1,9 +1,6 @@
 #!/bin/bash
 
-systemctl stop myWebApp
-
-
-if (ps aux | grep myWebApp | grep -v grep > /dev/null)
+if (ps aux | grep myWebApp | grep -v grep)
   then
       systemctl stop myWebApp
 fi
