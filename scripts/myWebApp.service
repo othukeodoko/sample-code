@@ -1,0 +1,17 @@
+[Unit]
+Description=dotnet sample application
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dotnet /home/ubuntu/sample-code/bin/Release/net7.0/publish/myWebApp.dll --urls http://0.0.0.0:5000
+WorkingDirectory=/home/ubuntu/sample-code
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+SyslogIdentifier=myWebApp
+User=root
+Group=root
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
