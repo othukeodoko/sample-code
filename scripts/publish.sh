@@ -1,5 +1,5 @@
 #!/bin/bash
-
+pwd
 ls -al
 dotnet publish -c Release
 cp -R myWebApp.service /etc/systemd/system/
