@@ -60,7 +60,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
-        run: aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.REPOSITORY }}
+        run: aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+
 
       - name: Publish Docker Image to Amazon ECR
         working-directory: ./
