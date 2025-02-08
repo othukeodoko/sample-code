@@ -64,7 +64,10 @@ jobs:
 
 
       - name: Publish Docker Image to Amazon ECR
-        working-directory: ./
         run: |
-          docker build . --file Dockerfile --tag ${{ secrets.REPOSITORY }}:latest
-          docker push ${{ secrets.REPOSITORY }} --all-tags
+          ECR_URI="${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.REPOSITORY }}"
+          echo "ECR URI: $ECR_URI"
+    
+          docker build . --file Dockerfile --tag $ECR_URI:latest
+          docker push $ECR_URI:latest
+
